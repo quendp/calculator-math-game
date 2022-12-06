@@ -1,0 +1,151 @@
+/* Variables */
+:root {
+    --ff-primary: "Poppins", sans-serif;
+    --ff-secondary: "Press Start 2P", sans-serif;
+    --clr-light-100: white;
+}
+
+/* Utilities */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Body */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    padding: 10px 0;
+
+    background: pink;
+}
+
+/* Header */
+.switch-mode-container {
+    background-color: rgb(209, 209, 209);
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.switch-mode-btn {
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-120%, -50%);
+}
+
+/* Main */
+.calc-wrapper {
+    justify-content: space-between;
+    border-radius: 30px;
+    padding: 30px 25px;
+    width: 90vw;
+    max-width: 400px;
+    height: 600px;
+
+
+    background: #000;
+    color: white;
+    overflow: hidden;
+}
+
+.calc-screen {
+    border-radius: 20px;
+    height: 30%;
+    width: 100%;
+    padding: 10px;
+
+    background-color: bisque;
+}
+
+.calc-screen > div {
+    height: 100%;
+    width: 100%;
+}
+
+.calc-btn-container {
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    gap: 15px;
+}
+
+.calc-btn-container > .flex-row {
+    width: 100%;
+    height: 50px;
+    gap: 10px;
+
+    justify-content: space-evenly;
+}
+
+.calc-btn {
+    flex-basis: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-family: var(--ff-primary);
+
+    color: #000;
+    background-color: antiquewhite;
+    font-size: 14px;
+}
+
+.calc-btn-row5.flex-row {
+    height: 113px;
+    width: 100%;
+}
+
+.calc-btn-row5-col1 {
+    flex-basis: 60%;
+    gap: 13px;
+}
+
+.calc-btn-row5-col1-top {
+    gap: 10px;
+    width: 100%;
+}
+
+.calc-btn-row5-col1-bottom {
+    width: 100%;
+}
+
+.calc-btn-row5 > .calc-btn {
+    flex-basis: 18%;
+    height: 100%;
+}
+
+.calc-btn-row5-col1 .calc-btn {
+    height: 50px;
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    font-family: var(--ff-primary);
+    font-size: 12px;
+}

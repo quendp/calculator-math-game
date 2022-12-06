@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <title>Calculator App | Quen Del Pilar</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="main-wrapper flex-column">
+        <header>
+            <div class="switch-mode-container">
+                <div class="switch-mode-btn"></div>
+            </div>
+        </header>
+        <main>
+            <div class="calc-wrapper flex-column">
+                <div class="calc-screen flex-column">
+                    <div class="calc-expression">
+                        <p id="calcExpression"></p>
+                    </div>
+                    <div class="calc-answer">
+                        <p id="calcAnswer"></p>
+                    </div>
+                </div>
+                <div class="calc-btn-container flex-column">
+                    <div class="calc-btn-row1 flex-row">
+                        <div class="calc-btn" id="btnExponent">Exp</div>
+                        <div class="calc-btn" id="btnSqrt">Sqrt</div>
+                        <div class="calc-btn" id="btnEulers">e</div>
+                        <div class="calc-btn" id="btnOff">Off</div>
+                        <div class="calc-btn" id="btnOn">On</div>
+                    </div>
+                    <div class="calc-btn-row2 flex-row">
+                        <div class="calc-btn" id="btnSeven">7</div>
+                        <div class="calc-btn" id="btnEight">8</div>
+                        <div class="calc-btn" id="btnNine">9</div>
+                        <div class="calc-btn" id="btnDelete">Del</div>
+                        <div class="calc-btn" id="btnClear">AC</div>
+                    </div>
+                    <div class="calc-btn-row3 flex-row">
+                        <div class="calc-btn" id="btnFour">4</div>
+                        <div class="calc-btn" id="btnFive">5</div>
+                        <div class="calc-btn" id="btnSix">6</div>
+                        <div class="calc-btn" id="btnOpenPar">(</div>
+                        <div class="calc-btn" id="btnClosePar">)</div>
+                    </div>
+                    <div class="calc-btn-row4 flex-row">
+                        <div class="calc-btn" id="btnOne">1</div>
+                        <div class="calc-btn" id="btnTwo">2</div>
+                        <div class="calc-btn" id="btnThree">3</div>
+                        <div class="calc-btn" id="btnMultiply">x</div>
+                        <div class="calc-btn" id="btnDivide">/</div>
+                    </div>
+                    <div class="calc-btn-row5 flex-row">
+                        <div class="calc-btn-row5-col1 flex-column">
+                            <div class="calc-btn-row5-col1-top flex-row">
+                                <div class="calc-btn" id="btnZero">0</div>
+                                <div class="calc-btn" id="btnDecimal">.</div>
+                                <div class="calc-btn" id="btnPi">π</div>
+                            </div>
+                            <div class="calc-btn-row5-col1-bottom">
+                                <div class="calc-btn" id="btnEquals">=</div>
+                            </div>
+                        </div>
+                        <div class="calc-btn" id="btnAdd">+</div>
+                        <div class="calc-btn" id="btnSubtract">-</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>
+                Made by: Quen Del Pilar | December 7, 2022
+            </p>
+        </footer>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
