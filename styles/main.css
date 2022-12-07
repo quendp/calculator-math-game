@@ -19,12 +19,13 @@
     --clr-dark-700: rgb(85, 84, 84);
     --clr-dark-900: rgb(101, 99, 99);
 
-    --clr-accent-green: rgb(17, 227, 63);
+    --clr-accent-green: rgba(17, 227, 63, 0.562);
     --clr-accent-blue: rgba(107, 153, 253, 0.534);
-    --clr-accent-purple: rgb(206, 17, 206);
-    --clr-accent-red: rgba(255, 128, 128, 0.8);
+    --clr-accent-purple: rgba(93, 26, 170, 0.4);
+    --clr-accent-red: rgba(255, 128, 128, 0.6);
     --clr-accent-orange: rgba(228, 198, 174, 0.616);
-    --clr-accent-yellow: rgb(175, 147, 20);
+    --clr-accent-yellow: rgba(175, 147, 20, 0.61);
+    --clr-accent-gray: rgba(32, 32, 32, 0.233);
 }
 
 /* Utilities */
@@ -69,9 +70,22 @@ header > p {
     font-family: var(--ff-secondary);
     font-size: 150px;
     font-weight: 900;
+    cursor: pointer;
     transform: rotate(-10deg);
-    color: var(--clr-light-200);
-    text-shadow: 5px 5px 5px var(--clr-light-500);
+    color: var(--clr-light-300);
+    text-shadow: 5px 5px 5px var(--clr-light-500),
+                -5px -5px 5px var(--clr-light-000);
+    transition: color 300ms ease-in-out;
+}
+
+header > p:active {
+    text-shadow: 2px 2px 5px var(--clr-light-500),
+                -2px -2px 5px var(--clr-light-000);
+}
+
+/* button click */
+.main-wrapper.gaming-mode header > p {
+    color: var(--clr-accent-purple);
 }
 
 /* Main */
@@ -87,12 +101,11 @@ main {
     height: 700px;
     background: var(--clr-light-300);
     overflow: hidden;
-
     border:1px solid;
 	border-bottom-color:rgba(0,0,0,0.7);
-	border-top-color:rgba(0,0,0,0.5);
+	border-top-color:rgba(50, 50, 50, 0.6);
 	border-right-color:rgba(0,0,0,0.6);
-	border-left-color:rgba(0,0,0,0.6);
+	border-left-color:rgba(50, 50, 50, 0.6);
     box-shadow:0px -100px 500px 80px rgba(255,255,255,0.2),
 				0px -130px 800px 30px rgba(230, 230, 230, 0.1),
 				inset 0px -11px 30px rgba(43, 43, 43, 0.6),
@@ -101,10 +114,16 @@ main {
 				inset 0px 20px 3px rgba(255,255,255,0.2),
 				-20px -17px 27px rgba(255, 255, 255, 0.1),
 				0px 17px 27px rgba(0,0,0,0.4),
-				0px 0px 30px rgba(0,0,0,0.3),
-				5px 5px 15px 1px rgba(37, 37, 37, 0.5),
+				2px 2px 10px 1px rgba(0,0,0,0.8),
+				10px 25px 50px 1px rgba(37, 37, 37, 0.7),
 				inset 1px 1px 1px rgba(255,255,255,0.5),
 				inset 0px 2px 2px rgba(0,0,0,0.2);
+    transition: background 300ms ease-in-out;
+}
+
+/* button click */
+.main-wrapper.gaming-mode .calc-wrapper{
+    background: var(--clr-accent-purple);
 }
 
 /* Calculator Top */
@@ -141,13 +160,19 @@ main {
     border: none;
     color: var(--clr-dark-900);
     text-shadow: 0 0 5px var(--clr-dark-000);
+    box-shadow: 1px 2px 3px 1px rgba(27, 27, 27, 0.575);
     position:absolute;
     top: 50%;
     left: 50%;
     transform: translate(-90%, -50%);
-    box-shadow: 1px 2px 3px 1px rgba(27, 27, 27, 0.575);
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
 }
 
+/* Button Click */
+.main-wrapper.gaming-mode .switch-mode-btn {
+    transform: translate(-10%, -50%);
+    box-shadow: -1px 2px 3px 1px rgba(27, 27, 27, 0.575);
+}
 
 /* Calculator Screen */
 .calc-screen {
