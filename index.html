@@ -7,74 +7,82 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-    <title>Calculator App | Quen Del Pilar</title>
+    <title>Calculator-inator | Quen Del Pilar</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <div class="main-wrapper flex-column">
         <header>
-            <div class="switch-mode-container">
-                <div class="switch-mode-btn"></div>
-            </div>
+            <p>ABOUT</p>
         </header>
         <main>
             <div class="calc-wrapper flex-column">
-                <div class="calc-screen flex-column">
-                    <div class="calc-expression">
-                        <p id="calcExpression"></p>
+                <section class="calc-top flex-row">
+                    <span class="switch-mode"> NORMAL</span>
+                    <div class="switch-mode-container">
+                        <button class="switch-mode-btn">|</button>
                     </div>
-                    <div class="calc-answer">
-                        <p id="calcAnswer"></p>
+                    <span class="switch-mode"> GAMING</span>
+                </section>
+                <div class="calc-screen flex-column">
+                    <div class="calc-mode flex-column">
+                        <p id="calcMode">NORMAL</p>
+                    </div>
+                    <div class="calc-expression flex-row">
+                        <span id="calcExpression">123456789</span><span id="calcScreenCursor"></span>
+                    </div>
+                    <div class="calc-answer flex-column">
+                        <p id="calcAnswer">123456</p>
                     </div>
                 </div>
                 <div class="calc-btn-container flex-column">
                     <div class="calc-btn-row1 flex-row">
-                        <div class="calc-btn" id="btnExponent">Exp</div>
-                        <div class="calc-btn" id="btnSqrt">Sqrt</div>
-                        <div class="calc-btn" id="btnEulers">e</div>
-                        <div class="calc-btn" id="btnOff">Off</div>
-                        <div class="calc-btn" id="btnOn">On</div>
+                        <button class="calc-btn btn-upper" id="btnDelete">Del</button>
+                        <button class="calc-btn btn-upper" id="btnClear">AC</button>
+                        <button class="calc-btn btn-upper" id="btnMagic">?</button>
+                        <button class="calc-btn" id="btnOff">Off</button>
+                        <button class="calc-btn" id="btnOn">On</button>
                     </div>
                     <div class="calc-btn-row2 flex-row">
-                        <div class="calc-btn" id="btnSeven">7</div>
-                        <div class="calc-btn" id="btnEight">8</div>
-                        <div class="calc-btn" id="btnNine">9</div>
-                        <div class="calc-btn" id="btnDelete">Del</div>
-                        <div class="calc-btn" id="btnClear">AC</div>
+                        <button class="calc-btn" id="btnSeven">7</button>
+                        <button class="calc-btn" id="btnEight">8</button>
+                        <button class="calc-btn" id="btnNine">9</button>
+                        <button class="calc-btn" id="btnExponent">Exp</button>
+                        <button class="calc-btn" id="btnSqrt">Sqrt</button>
                     </div>
                     <div class="calc-btn-row3 flex-row">
-                        <div class="calc-btn" id="btnFour">4</div>
-                        <div class="calc-btn" id="btnFive">5</div>
-                        <div class="calc-btn" id="btnSix">6</div>
-                        <div class="calc-btn" id="btnOpenPar">(</div>
-                        <div class="calc-btn" id="btnClosePar">)</div>
+                        <button class="calc-btn" id="btnFour">4</button>
+                        <button class="calc-btn" id="btnFive">5</button>
+                        <button class="calc-btn" id="btnSix">6</button>
+                        <button class="calc-btn" id="btnOpenPar">(</button>
+                        <button class="calc-btn" id="btnClosePar">)</button>
                     </div>
                     <div class="calc-btn-row4 flex-row">
-                        <div class="calc-btn" id="btnOne">1</div>
-                        <div class="calc-btn" id="btnTwo">2</div>
-                        <div class="calc-btn" id="btnThree">3</div>
-                        <div class="calc-btn" id="btnMultiply">x</div>
-                        <div class="calc-btn" id="btnDivide">/</div>
+                        <button class="calc-btn" id="btnOne">1</button>
+                        <button class="calc-btn" id="btnTwo">2</button>
+                        <button class="calc-btn" id="btnThree">3</button>
+                        <button class="calc-btn" id="btnMultiply">x</button>
+                        <button class="calc-btn" id="btnDivide">/</button>
                     </div>
                     <div class="calc-btn-row5 flex-row">
                         <div class="calc-btn-row5-col1 flex-column">
                             <div class="calc-btn-row5-col1-top flex-row">
-                                <div class="calc-btn" id="btnZero">0</div>
-                                <div class="calc-btn" id="btnDecimal">.</div>
-                                <div class="calc-btn" id="btnPi">π</div>
+                                <button class="calc-btn" id="btnZero">0</button>
+                                <button class="calc-btn" id="btnDecimal">.</button>
+                                <button class="calc-btn" id="btnPi">π</button>
                             </div>
                             <div class="calc-btn-row5-col1-bottom">
-                                <div class="calc-btn" id="btnEquals">=</div>
+                                <button class="calc-btn" id="btnEquals">=</button>
                             </div>
                         </div>
-                        <div class="calc-btn" id="btnAdd">+</div>
-                        <div class="calc-btn" id="btnSubtract">-</div>
+                        <button class="calc-btn" id="btnAdd">+</button>
+                        <button class="calc-btn" id="btnSubtract">-</button>
                         
                     </div>
                 </div>

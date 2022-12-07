@@ -1,8 +1,30 @@
 /* Variables */
 :root {
     --ff-primary: "Poppins", sans-serif;
-    --ff-secondary: "Press Start 2P", sans-serif;
-    --clr-light-100: white;
+    --ff-secondary: "VT323", monospace;
+
+    --clr-light-000: rgb(255, 255, 255);
+    --clr-light-100: rgb(246, 243, 253);
+    --clr-light-200: rgb(236, 233, 243);
+    --clr-light-300: rgb(226, 223, 223);
+    --clr-light-500: rgb(182, 179, 179);
+    --clr-light-700: rgb(152, 149, 149);
+    --clr-light-900: rgb(121, 120, 120);
+
+
+    --clr-dark-000: rgb(0, 0, 0);
+    --clr-dark-100: rgb(29, 29, 29);
+    --clr-dark-300: rgb(49, 48, 48);
+    --clr-dark-500: rgb(67, 66, 66);
+    --clr-dark-700: rgb(85, 84, 84);
+    --clr-dark-900: rgb(101, 99, 99);
+
+    --clr-accent-green: rgb(17, 227, 63);
+    --clr-accent-blue: rgba(107, 153, 253, 0.534);
+    --clr-accent-purple: rgb(206, 17, 206);
+    --clr-accent-red: rgba(255, 128, 128, 0.8);
+    --clr-accent-orange: rgba(228, 198, 174, 0.616);
+    --clr-accent-yellow: rgb(175, 147, 20);
 }
 
 /* Utilities */
@@ -28,64 +50,184 @@
 }
 
 .main-wrapper {
-    justify-content: space-between;
     height: 100vh;
     width: 100%;
     padding: 10px 0;
-
-    background: pink;
+    position: relative;
+    overflow: hidden;
+    background: var(--clr-light-100);
 }
 
 /* Header */
-.switch-mode-container {
-    background-color: rgb(209, 209, 209);
-    width: 60px;
-    height: 30px;
-    border-radius: 20px;
-    position: relative;
+header {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    z-index: 0;
 }
-
-.switch-mode-btn {
-    background-color: blue;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-120%, -50%);
+header > p {
+    font-family: var(--ff-secondary);
+    font-size: 150px;
+    font-weight: 900;
+    transform: rotate(-10deg);
+    color: var(--clr-light-200);
+    text-shadow: 5px 5px 5px var(--clr-light-500);
 }
 
 /* Main */
+main {
+    z-index: 1;
+}
 .calc-wrapper {
     justify-content: space-between;
     border-radius: 30px;
-    padding: 30px 25px;
+    padding: 40px 35px;
     width: 90vw;
     max-width: 400px;
-    height: 600px;
-
-
-    background: #000;
-    color: white;
+    height: 700px;
+    background: var(--clr-light-300);
     overflow: hidden;
+
+    border:1px solid;
+	border-bottom-color:rgba(0,0,0,0.7);
+	border-top-color:rgba(0,0,0,0.5);
+	border-right-color:rgba(0,0,0,0.6);
+	border-left-color:rgba(0,0,0,0.6);
+    box-shadow:0px -100px 500px 80px rgba(255,255,255,0.2),
+				0px -130px 800px 30px rgba(230, 230, 230, 0.1),
+				inset 0px -11px 30px rgba(43, 43, 43, 0.6),
+				inset 0px -7px 8px rgba(51, 51, 51, 0.7),
+				inset 0px -1px 1px rgba(255,255,255,0.4),
+				inset 0px 20px 3px rgba(255,255,255,0.2),
+				-20px -17px 27px rgba(255, 255, 255, 0.1),
+				0px 17px 27px rgba(0,0,0,0.4),
+				0px 0px 30px rgba(0,0,0,0.3),
+				5px 5px 15px 1px rgba(37, 37, 37, 0.5),
+				inset 1px 1px 1px rgba(255,255,255,0.5),
+				inset 0px 2px 2px rgba(0,0,0,0.2);
 }
 
+/* Calculator Top */
+.calc-top {
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 15px;
+    font-family: var(--ff-primary);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+.switch-mode-container {
+    background-color: var(--clr-light-500);
+    width: 70px;
+    height: 35px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border:5px solid;
+    border-top-color: rgba(182, 178, 178, 0.7);
+    border-right-color: rgba(206, 201, 201, 0.7);
+    border-bottom-color: rgba(255,255,255,0.7);
+    border-left-color: rgba(206, 201, 201, 0.7);
+	box-shadow: 0px 2px 2px 2px rgba(220, 220, 220, 0.8),
+                inset 0px -3px 10px rgba(0,0,0,0.05),
+				inset 0px 2px 3px 1px rgba(0,0,0,0.2);
+}
+
+.switch-mode-btn {
+    background-color: var(--clr-dark-300);
+    height: 20px;
+    width: 30px;
+    border-radius: 20px;
+    border: none;
+    color: var(--clr-dark-900);
+    text-shadow: 0 0 5px var(--clr-dark-000);
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-90%, -50%);
+    box-shadow: 1px 2px 3px 1px rgba(27, 27, 27, 0.575);
+}
+
+
+/* Calculator Screen */
 .calc-screen {
     border-radius: 20px;
-    height: 30%;
+    height: 40%;
     width: 100%;
-    padding: 10px;
+    padding: 10px 20px;
+    overflow: hidden;
 
-    background-color: bisque;
+    background-color: var(--clr-light-500);
+    font-family: var(--ff-secondary);
+    letter-spacing: 1px;
+    color: var(--clr-dark-500);
+
+    border:5px solid;
+    border-top-color: rgba(182, 178, 178, 0.7);
+    border-right-color: rgba(206, 201, 201, 0.7);
+    border-bottom-color: rgba(255,255,255,0.7);
+    border-left-color: rgba(206, 201, 201, 0.7);
+	box-shadow: 0px 2px 2px 2px rgba(220, 220, 220, 0.8),
+                inset 0px -3px 10px rgba(0,0,0,0.05),
+				inset 1px 6px 9px rgba(0,0,0,0.3),
+				inset 1px 1px 1px rgba(0,0,0,0.2),
+				inset -1px -1px 1px rgba(0,0,0,0.1),
+				inset 0px 5px 10px 1px rgba(0,0,0,0.2);
 }
 
-.calc-screen > div {
-    height: 100%;
+.calc-screen .calc-mode {
+    height: 15%;
     width: 100%;
+    font-size: 12px;
+    align-items: flex-start;
 }
 
+.calc-screen .calc-mode p {
+    background-color: var(--clr-dark-500);
+    color: var(--clr-light-500);
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.calc-screen .calc-expression {
+    height: 42.5%;
+    width: 100%;
+    font-size:50px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.calc-screen .calc-answer {
+    height: 42.5%;
+    width: 100%;
+    font-size: 40px;
+    align-items: flex-end;
+}
+
+#calcExpression{
+    display: inline-block;
+}
+
+#calcScreenCursor {
+    background-color: var(--clr-dark-500);
+    display: inline-block;
+    height: 30px;
+    width: 5px;
+    margin-left: 5px;
+    opacity: 1;
+    animation: blink 800ms infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Calculator Buttons */
 .calc-btn-container {
     justify-content: flex-end;
     height: 100%;
@@ -97,8 +239,6 @@
     width: 100%;
     height: 50px;
     gap: 10px;
-
-    justify-content: space-evenly;
 }
 
 .calc-btn {
@@ -109,10 +249,38 @@
     align-items: center;
     border-radius: 10px;
     font-family: var(--ff-primary);
-
-    color: #000;
-    background-color: antiquewhite;
+    color: var(--clr-light-900);
+    background-color: var(--clr-light-200);
     font-size: 14px;
+    position: relative;
+
+    border:1px solid;
+	border-bottom-color:rgba(0,0,0,0.7);
+	border-top-color:rgba(0,0,0,0.5);
+	border-right-color:rgba(0,0,0,0.6);
+	border-left-color:rgba(0,0,0,0.6);
+	box-shadow:inset 0px -2px 3px 3px rgba(75, 74, 73, 0.2),
+				0px 2px 2px rgba(0,0,0,0.8),
+				inset 0px -1px 1px rgba(255,255,255,0.5),
+				inset 0px -2px 2px rgba(73, 73, 73, 0.8),
+				inset 0px -7px 2px rgba(87, 87, 87, 0.3),
+				0px 0px 6px 2px rgb(155, 155, 155);
+}
+
+.calc-btn:active {
+    top:3px;
+	box-shadow:inset 0px -2px 3px 3px rgba(88, 88, 88, 0.2),
+				0px -1px 2px rgba(0,0,0,0.8),
+				inset -1px 1px 2px rgba(255,255,255,0.9),
+				inset 0px -1px 1px rgba(255,255,255,0.3),
+				inset 0px -2px 2px rgba(68, 68, 68, 0.8),
+				inset 0px -7px 2px rgba(85, 85, 85, 0.3),
+				0px -3px 6px 2px rgb(153, 153, 153);
+}
+
+.calc-btn:focus, .calc-btn:hover {
+    color: var(--clr-accent-yellow);
+    text-shadow: 0 0 5px rgba(153, 144, 12, 0.7);
 }
 
 .calc-btn-row5.flex-row {
@@ -144,8 +312,32 @@
     width: 100%;
 }
 
+#btnOn, #btnOff {
+    border-radius: 50%;
+    color: var(--clr-dark-700);
+}
+
+#btnOff {
+    background-color: var(--clr-accent-red);
+}
+
+#btnOn {
+    background-color: var(--clr-accent-blue);
+}
+
+.btn-upper {
+    background-color: var(--clr-accent-orange);
+    color: var(--clr-dark-700);
+}
+
 /* Footer */
 footer {
-    font-family: var(--ff-primary);
-    font-size: 12px;
+    z-index: 0;
+    position: absolute;
+    bottom: 1%;
+    width: 98%;
+    text-align: end;
+    font-family: var(--ff-secondary);
+    font-size: 18px;
+    color: var(--clr-light-900);
 }
