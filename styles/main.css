@@ -20,12 +20,12 @@
     --clr-dark-900: rgb(101, 99, 99);
 
     --clr-accent-green: rgba(17, 227, 63, 0.562);
-    --clr-accent-blue: rgba(107, 153, 253, 0.534);
-    --clr-accent-purple: rgba(93, 26, 170, 0.4);
-    --clr-accent-red: rgba(255, 128, 128, 0.6);
-    --clr-accent-orange: rgba(228, 198, 174, 0.616);
-    --clr-accent-yellow: rgba(175, 147, 20, 0.61);
-    --clr-accent-gray: rgba(32, 32, 32, 0.233);
+    --clr-accent-blue: rgba(20, 70, 233, 0.7);
+    --clr-accent-red: rgba(226, 24, 24, 0.6);
+    --clr-accent-orange: rgba(243, 121, 21, 0.8);
+    --clr-accent-yellow: rgba(163, 135, 7, 0.801);
+    --clr-accent-normal: rgba(24, 146, 228, 0.5);
+    --clr-accent-gaming: rgba(211, 26, 228, 0.5);
 }
 
 /* Utilities */
@@ -83,39 +83,32 @@ header > p:active {
                 -2px -2px 5px var(--clr-light-000);
 }
 
-/* button click */
-.main-wrapper.gaming-mode header > p {
-    color: var(--clr-accent-purple);
-}
-
 /* Main */
 main {
     z-index: 1;
 }
 .calc-wrapper {
     justify-content: space-between;
-    border-radius: 30px;
+    border-radius: 50px;
     padding: 40px 35px;
     width: 90vw;
     max-width: 400px;
     height: 700px;
-    background: var(--clr-light-300);
+    background: var(--clr-accent-normal);
     overflow: hidden;
-    border:1px solid;
-	border-bottom-color:rgba(0,0,0,0.7);
-	border-top-color:rgba(50, 50, 50, 0.6);
-	border-right-color:rgba(0,0,0,0.6);
-	border-left-color:rgba(50, 50, 50, 0.6);
-    box-shadow:0px -100px 500px 80px rgba(255,255,255,0.2),
-				0px -130px 800px 30px rgba(230, 230, 230, 0.1),
-				inset 0px -11px 30px rgba(43, 43, 43, 0.6),
+    border: 1px solid;
+	border-top-color:rgba(12, 120, 139, 0.7);
+	border-bottom-color:rgba(8, 27, 77, 0.6);
+	border-left-color:rgba(14, 116, 134, 0.7);
+	border-right-color:rgba(7, 29, 87, 0.6);
+    box-shadow: inset 0px -11px 30px rgba(43, 43, 43, 0.6),
 				inset 0px -7px 8px rgba(51, 51, 51, 0.7),
 				inset 0px -1px 1px rgba(255,255,255,0.4),
 				inset 0px 20px 3px rgba(255,255,255,0.2),
 				-20px -17px 27px rgba(255, 255, 255, 0.1),
-				0px 17px 27px rgba(0,0,0,0.4),
-				2px 2px 10px 1px rgba(0,0,0,0.8),
-				10px 25px 50px 1px rgba(37, 37, 37, 0.7),
+				0px 17px 27px rgba(0,0,0,0.2),
+				1px 5px 15px 1px rgba(0,0,0,0.3),
+				10px 25px 50px 1px rgba(37, 37, 37, 0.2),
 				inset 1px 1px 1px rgba(255,255,255,0.5),
 				inset 0px 2px 2px rgba(0,0,0,0.2);
     transition: background 300ms ease-in-out;
@@ -123,7 +116,11 @@ main {
 
 /* button click */
 .main-wrapper.gaming-mode .calc-wrapper{
-    background: var(--clr-accent-purple);
+    background: var(--clr-accent-gaming);
+    border-top-color:rgba(102, 10, 110, 0.7);
+	border-bottom-color:rgba(49, 4, 53, 0.7);
+	border-left-color:rgba(102, 10, 110, 0.7);
+	border-right-color:rgba(49, 4, 53, 0.7);
 }
 
 /* Calculator Top */
@@ -136,18 +133,31 @@ main {
     letter-spacing: 1px;
 }
 .switch-mode-container {
-    background-color: var(--clr-light-500);
+    background-color: rgba(62, 146, 206, 0.8);
     width: 70px;
-    height: 35px;
+    height: 33px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    border:5px solid;
-    border-top-color: rgba(182, 178, 178, 0.7);
-    border-right-color: rgba(206, 201, 201, 0.7);
-    border-bottom-color: rgba(255,255,255,0.7);
-    border-left-color: rgba(206, 201, 201, 0.7);
-	box-shadow: 0px 2px 2px 2px rgba(220, 220, 220, 0.8),
+    border:3px solid;
+    border-top-color:rgba(9, 89, 143, 0.5);
+    border-bottom-color:rgba(97, 172, 223, 0.712);
+	border-left-color:rgba(23, 133, 206, 0.5);
+	border-right-color:rgba(23, 133, 206, 0.5);
+	box-shadow: 0px 2px 2px 2px rgba(154, 201, 231, 0.712),
+                inset 0px -3px 10px rgba(0,0,0,0.05),
+				inset 0px 2px 3px 1px rgba(0,0,0,0.2);
+    transition: border 300ms ease-in-out, box-shadow 300ms ease-in-out, background 300ms ease-in-out;
+}
+
+/* Button Click */
+.main-wrapper.gaming-mode .switch-mode-container {
+    background-color: rgba(173, 110, 182, 0.8);
+    border-top-color:rgba(133, 11, 145, 0.5);
+    border-bottom-color:rgba(218, 67, 231, 0.5);
+	border-left-color:rgba(179, 16, 194, 0.5);
+	border-right-color:rgba(179, 16, 194, 0.5);
+	box-shadow: 0px 2px 2px 2px rgba(228, 171, 235, 0.5),
                 inset 0px -3px 10px rgba(0,0,0,0.05),
 				inset 0px 2px 3px 1px rgba(0,0,0,0.2);
 }
@@ -188,11 +198,26 @@ main {
     color: var(--clr-dark-500);
 
     border:5px solid;
-    border-top-color: rgba(182, 178, 178, 0.7);
-    border-right-color: rgba(206, 201, 201, 0.7);
-    border-bottom-color: rgba(255,255,255,0.7);
-    border-left-color: rgba(206, 201, 201, 0.7);
-	box-shadow: 0px 2px 2px 2px rgba(220, 220, 220, 0.8),
+	border-top-color:rgba(62, 124, 165, 0.795);
+    border-bottom-color:rgba(97, 172, 223, 0.712);
+	border-left-color:rgba(23, 133, 206, 0.5);
+	border-right-color:rgba(23, 133, 206, 0.5);
+	box-shadow: 0px 2px 2px 2px rgba(154, 201, 231, 0.712),
+                inset 0px -3px 10px rgba(0,0,0,0.05),
+				inset 1px 6px 9px rgba(0,0,0,0.3),
+				inset 1px 1px 1px rgba(0,0,0,0.2),
+				inset -1px -1px 1px rgba(0,0,0,0.1),
+				inset 0px 5px 10px 1px rgba(0,0,0,0.2);
+    transition: border 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+/* Button Click */
+.main-wrapper.gaming-mode .calc-screen {
+    border-top-color:rgba(133, 11, 145, 0.5);
+    border-bottom-color:rgba(218, 67, 231, 0.5);
+	border-left-color:rgba(179, 16, 194, 0.5);
+	border-right-color:rgba(179, 16, 194, 0.5);
+	box-shadow: 0px 2px 2px 2px rgba(228, 171, 235, 0.5),
                 inset 0px -3px 10px rgba(0,0,0,0.05),
 				inset 1px 6px 9px rgba(0,0,0,0.3),
 				inset 1px 1px 1px rgba(0,0,0,0.2),
@@ -278,7 +303,6 @@ main {
     background-color: var(--clr-light-200);
     font-size: 14px;
     position: relative;
-
     border:1px solid;
 	border-bottom-color:rgba(0,0,0,0.7);
 	border-top-color:rgba(0,0,0,0.5);
@@ -337,9 +361,9 @@ main {
     width: 100%;
 }
 
-#btnOn, #btnOff {
+.btn-power {
     border-radius: 50%;
-    color: var(--clr-dark-700);
+    color: var(--clr-light-300);
 }
 
 #btnOff {
@@ -350,9 +374,15 @@ main {
     background-color: var(--clr-accent-blue);
 }
 
+#btnAbout {
+    background-color: var(--clr-light-100);
+    border-radius: 50%;
+}
+
 .btn-upper {
     background-color: var(--clr-accent-orange);
-    color: var(--clr-dark-700);
+    color: var(--clr-light-300);
+    border-radius: 50%;
 }
 
 /* Footer */
@@ -365,4 +395,25 @@ footer {
     font-family: var(--ff-secondary);
     font-size: 18px;
     color: var(--clr-light-900);
+}
+
+@media (max-width: 1100px) {
+    header, footer {
+        display: none;
+    }
+}
+@media (max-width: 760px) {
+    .calc-wrapper {
+        width: 98vw;
+        height: 650px;
+    }
+    .calc-top {
+        margin-bottom: 20px;
+    }
+    .calc-screen {
+        margin-bottom: 10px;
+    }
+    .calc-btn {
+        height: 80%;
+    }
 }
