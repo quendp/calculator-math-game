@@ -81,7 +81,7 @@ header {
     top: 5%;
     left: 2%;
     z-index: 0;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 header > p {
     font-family: var(--ff-secondary);
@@ -149,6 +149,7 @@ main {
     font-size: 10px;
     letter-spacing: 1px;
 }
+
 .switch-mode-container {
     background-color: var(--clr-accent-normal-900);
     width: 70px;
@@ -351,7 +352,7 @@ main {
 
 .calc-btn:focus, .calc-btn:hover {
     color: var(--clr-accent-yellow);
-    text-shadow: 0 0 5px rgb(255, 238, 0);
+    text-shadow: 0 0 8px rgb(255, 238, 0);
 }
 
 .calc-btn-row5.flex-row {
