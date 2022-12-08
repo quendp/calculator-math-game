@@ -23,9 +23,9 @@
     --clr-accent-blue: rgba(20, 70, 233, 0.7);
     --clr-accent-red: rgba(226, 24, 24, 0.6);
     --clr-accent-orange: rgba(243, 121, 21, 0.8);
-    --clr-accent-yellow: rgba(163, 135, 7, 0.801);
-    --clr-accent-normal: rgba(24, 146, 228, 0.5);
-    --clr-accent-gaming: rgba(211, 26, 228, 0.5);
+    --clr-accent-yellow: rgb(165, 135, 14);
+    --clr-accent-normal: rgb(134, 191, 230);
+    --clr-accent-gaming: rgb(211, 122, 219);
 }
 
 /* Utilities */
@@ -57,6 +57,11 @@
     position: relative;
     overflow: hidden;
     background: var(--clr-light-100);
+    background-image: url(../images/simon-berger-JH_R66BihvA-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /* Header */
@@ -72,15 +77,15 @@ header > p {
     font-weight: 900;
     cursor: pointer;
     transform: rotate(-10deg);
-    color: var(--clr-light-300);
-    text-shadow: 5px 5px 5px var(--clr-light-500),
-                -5px -5px 5px var(--clr-light-000);
+    color: rgb(221, 189, 138);
+    text-shadow: 3px 3px 5px var(--clr-dark-500),
+                -3px -3px 5px rgb(247, 241, 232);
     transition: color 300ms ease-in-out;
 }
 
 header > p:active {
-    text-shadow: 2px 2px 5px var(--clr-light-500),
-                -2px -2px 5px var(--clr-light-000);
+    text-shadow: 1px 1px 5px var(--clr-dark-500),
+                -1px -1px 5px rgb(247, 241, 232);
 }
 
 /* Main */
@@ -308,12 +313,12 @@ main {
 	border-top-color:rgba(0,0,0,0.5);
 	border-right-color:rgba(0,0,0,0.6);
 	border-left-color:rgba(0,0,0,0.6);
-	box-shadow:inset 0px -2px 3px 3px rgba(75, 74, 73, 0.2),
+	/* box-shadow:inset 0px -2px 3px 3px rgba(75, 74, 73, 0.2),
 				0px 2px 2px rgba(0,0,0,0.8),
 				inset 0px -1px 1px rgba(255,255,255,0.5),
 				inset 0px -2px 2px rgba(73, 73, 73, 0.8),
 				inset 0px -7px 2px rgba(87, 87, 87, 0.3),
-				0px 0px 6px 2px rgb(155, 155, 155);
+				0px 0px 6px 2px rgb(155, 155, 155); */
 }
 
 .calc-btn:active {
@@ -329,7 +334,7 @@ main {
 
 .calc-btn:focus, .calc-btn:hover {
     color: var(--clr-accent-yellow);
-    text-shadow: 0 0 5px rgba(153, 144, 12, 0.7);
+    text-shadow: 0 0 5px rgb(255, 238, 0);
 }
 
 .calc-btn-row5.flex-row {
