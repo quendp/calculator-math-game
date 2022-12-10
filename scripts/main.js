@@ -67,15 +67,7 @@ btnClear.addEventListener("click", function(){
 });
 
 // delete number
-btnDelete.addEventListener("click", function(){
-    if (calcExpressionString.length > 12){
-        let calcExpLimit = calcExpressionString.slice(calcExpressionString.length - 12, -1);
-        calcExpression.textContent = calcExpLimit;
-    } else {
-        calcExpressionString = calcExpressionString.slice(0, -1)
-        calcExpression.textContent = calcExpressionString;
-    };
-});
+btnDelete.addEventListener("click", deleteNum);
 
 // click numbers
 btnZero.addEventListener("click", function(){printNum(0)});
@@ -135,6 +127,17 @@ function printNum(value){
     calcAnswer.textContent = "";
 }
 
+// delete numbers in calc expression
+function deleteNum(){
+    if (calcExpressionString.length > 12){
+        calcExpressionString = calcExpressionString.slice(0, -1);
+        printNum("");
+    } else {
+        calcExpressionString = calcExpressionString.slice(0, -1)
+        calcExpression.textContent = calcExpressionString;
+    };
+}
+
 // solve expression
 function solveExpression(stringExpression){
 
@@ -143,7 +146,7 @@ function solveExpression(stringExpression){
     // convert string expression to array
     let expArray = stringExpression.split("");
 
-    // allow multiplication using parenthesis, pi, and square root
+    // allow multiplication using parenthesis and pi
     for (let i=0; i < expArray.length; i++){
         if(validChars.includes(expArray[i]) && (expArray[i+1] === "(" || expArray[i+1] === "π")){
             expArray[i] = expArray[i] + "*";
@@ -159,27 +162,22 @@ function solveExpression(stringExpression){
     // for square roots
     for (let i=0; i < expStringJoined.length; i++) {
         if (expStringJoined[i] == "√"){
-            let radicandStringBefore = expStringJoined.split().pop().split('(√')[0];
-            let radicandString = expStringJoined.split('(√').pop().split()[0];
-
-            console.log(radicandStringBefore);
-            console.log(radicandString);
-
-            findRadicand(radicandString);
+            let radicandStringBefore = expStringJoined.substring(0, i-1);
+            let radicandString = expStringJoined.substring(i+1);
+            let radicandArray = findRadicand(radicandString);
+            expStringJoined = radicandStringBefore + `Math.sqrt(${radicandArray[0]})` + radicandArray[1];
         }
     }
-    // let radicand = expStringJoined.split('√(').pop().split(')')[0];    
-
+    
     // replace invalid symbols with valid symbols
     const calcOperations = {
         "x": "*",
         "^": "**",
         "π": "Math.PI",
-        // "√": `Math.sqrt(${radicand})`
     };
     calcExpNum = expStringJoined.replace(/[x^π]/g, i => calcOperations[i]).replace("()", "");
 
-    // check if all parenthesis are closed
+    // check if all parenthesis are closed (initial validation)
     let openParCount = 0;
     let closeParCount = 0;
     for(i of calcExpNum) {
@@ -191,26 +189,48 @@ function solveExpression(stringExpression){
         };
     };
 
+    // check validity of evaluate function
+    let finalResult = null;
+    let evalValid = true;
+
+    try {
+        eval(calcExpNum); 
+    } catch (e) {
+        if (e instanceof SyntaxError) {
+            evalValid = false;
+        }
+    } finally {
+        if(evalValid == true) {
+            finalResult = Number(eval(calcExpNum));
+        }
+    }
+
     if (openParCount != closeParCount){
         calcAnswer.textContent = "Error: make sure all parentheses are closed";
-        calcAnswer.style.fontSize = "20px";
+        calcAnswer.style.fontSize = "25px";
+    } else if (evalValid){
+        if (finalResult.toString().length > 15){
+            finalResult = finalResult.toExponential(5);
+            calcAnswer.textContent = finalResult;
+            calcAnswer.style.fontSize = "40px";
+        } else {
+            calcAnswer.textContent = finalResult;
+            calcAnswer.style.fontSize = "40px";
+        }
+        
     } else {
-        calcAnswer.textContent = 123;
+        calcAnswer.textContent = "Syntax Error"
         calcAnswer.style.fontSize = "40px";
     };
-    
-    // let finalResult = Number(eval(calcExpNum).toFixed(8))
-    console.log(calcExpNum);
 };
 
 // Find radicand for squareroots
 const findRadicand = (radicandString) => {
-
     let openParCount2 = 0;
     let closeParCount2 = 0;
     let parIndex = 0;
     let newRadicand = "";
-    while (openParCount2 > closeParCount2 && radicandString.length > parIndex) {
+    while (openParCount2 >= closeParCount2 && radicandString.length > parIndex) {
         newRadicand += radicandString[parIndex];
         parIndex++;
         if (radicandString[parIndex] == "("){
@@ -220,12 +240,8 @@ const findRadicand = (radicandString) => {
             closeParCount2++
         };
     }
-    
-    console.log(newRadicand);
 
-
-    // return modified radicandString with Math.sqrt(radicand) + extra code here
+    let radicandStringAfter = radicandString.substring(radicandString.indexOf(newRadicand)+newRadicand.length+1);
+    let radicandFinalArray = [newRadicand, radicandStringAfter];
+    return radicandFinalArray;
 }
-
-
-// Bugs radical, delete button for a limit exceeding
