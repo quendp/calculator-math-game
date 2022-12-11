@@ -91,7 +91,7 @@ btnDelete.addEventListener("click", deleteNum);
 btnAbout.addEventListener("click", function(){
     if (calcStatus == "on"){
         clearScreen()
-    aboutScreen.classList.toggle("aboutScreenActive");
+        aboutScreen.classList.add("aboutScreenActive");
     }
 })
 
@@ -145,6 +145,7 @@ function clearScreen(){
     calcExpressionString = "";
     calcExpression.textContent = "";
     calcAnswer.textContent = "";
+    aboutScreen.classList.remove("aboutScreenActive");
 }
 
 // print numbers in calc expression
@@ -158,6 +159,7 @@ function printNum(value){
         calcExpression.textContent = calcExpLimit;
     };
     calcAnswer.textContent = "";
+    aboutScreen.classList.remove("aboutScreenActive");
 }
 
 // delete numbers in calc expression
