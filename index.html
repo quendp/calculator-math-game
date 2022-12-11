@@ -16,8 +16,25 @@
 <body>
     <div class="main-wrapper flex-column">
         <header class="flex-column">
-            <div class="header-hole flex-column">+</div>
-            <p>ABOUT</p>
+            <div class="header-container flex-column" id="headerContainer">
+                <div class="header-hole flex-column">+</div>
+                <p>ABOUT</p>
+            </div>
+            <div class="header-about-popup flex-column" id="headerAbout">
+                <p>
+                    Hello there!
+                </p>
+                <p>
+                    I created this website as a requirement to our coding bootcamp. The task is to simply create a basic calculator. <br><br>
+                    However, I always like to challenge myself and scale up each project's difficulty level.
+                    So, I added a few more features that may seem useless but is still pretty fun to make, lol.
+                    I hope you'll like my work.
+                </p>
+                <p>
+                    Regards, <br>
+                    Quen D.P.
+                </p>
+            </div>
         </header>
         <main>
             <div class="calc-wrapper flex-column">
@@ -89,15 +106,14 @@
         <footer>
             <div class="paper flex-column">
                 <div class="paper-lines flex-row">Solution:</div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
-                <div class="paper-lines flex-row"></div>
+                <div class="paper-lines solution-exp flex-row">1) &nbsp;<span id="solutionExp1"></span></div>
+                <div class="paper-lines solution-ans flex-row">answer: &nbsp;<span id="solutionAnswer1"></span></div>
+                <div class="paper-lines solution-exp flex-row">2) &nbsp;<span id="solutionExp2"></span></div>
+                <div class="paper-lines solution-ans flex-row">answer: &nbsp;<span id="solutionAnswer2"></span></div>
+                <div class="paper-lines solution-exp flex-row">3) &nbsp;<span id="solutionExp3"></span></div>
+                <div class="paper-lines solution-ans flex-row">answer: &nbsp;<span id="solutionAnswer3"></span></div>
+                <div class="paper-lines solution-exp flex-row">4) &nbsp;<span id="solutionExp4"></span></div>
+                <div class="paper-lines solution-ans flex-row">answer: &nbsp;<span id="solutionAnswer4"></span></div>
             </div>
             <div class="pen-wrapper">
                 <div class="pen flex-column">

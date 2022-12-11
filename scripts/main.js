@@ -38,10 +38,25 @@ const btnAdd = document.getElementById("btnAdd");
 const btnSubtract = document.getElementById("btnSubtract");
 const btnEquals = document.getElementById("btnEquals");
 
+// solution paper
+const solutionExp1 = document.getElementById("solutionExp1");
+const solutionExp2 = document.getElementById("solutionExp2");
+const solutionExp3 = document.getElementById("solutionExp3");
+const solutionExp4 = document.getElementById("solutionExp4");
+const solutionAnswer1 = document.getElementById("solutionAnswer1");
+const solutionAnswer2 = document.getElementById("solutionAnswer2");
+const solutionAnswer3 = document.getElementById("solutionAnswer3");
+const solutionAnswer4 = document.getElementById("solutionAnswer4");
+
+// About header
+const headerContainer = document.getElementById("headerContainer");
+const headerAbout = document.getElementById("headerAbout")
+
 // global variables
 let mode = "NORMAL";
 let calcStatus = "off"
 let calcExpressionString = "";
+let equalSignClick = 1;
 
 // Events
 // switch mode
@@ -90,8 +105,15 @@ btnMultiply.addEventListener("click", function(){printNum("x")});
 btnDivide.addEventListener("click", function(){printNum("/")});
 btnAdd.addEventListener("click", function(){printNum("+")});
 btnSubtract.addEventListener("click", function(){printNum("-")});
-btnEquals.addEventListener("click", function(){solveExpression(calcExpressionString)});
+btnEquals.addEventListener("click", function(){
+    solveExpression(calcExpressionString);
+    equalSignClick++;
+});
 
+// click about header
+headerContainer.addEventListener("click", function(){
+    headerAbout.classList.toggle("headerActive");
+});
 
 // Functions
 // switch mode
@@ -180,7 +202,7 @@ function solveExpression(stringExpression){
     // check if all parenthesis are closed (initial validation)
     let openParCount = 0;
     let closeParCount = 0;
-    for(i of calcExpNum) {
+    for(const i of calcExpNum) {
         if(i === "("){
             openParCount++
         };
@@ -201,21 +223,27 @@ function solveExpression(stringExpression){
         }
     } finally {
         if(evalValid == true) {
-            finalResult = Number(eval(calcExpNum));
+            finalResult = eval(calcExpNum);
         }
     }
 
     if (openParCount != closeParCount){
         calcAnswer.textContent = "Error: make sure all parentheses are closed";
         calcAnswer.style.fontSize = "25px";
+    } else if (evalValid && (finalResult == "Infinity" || finalResult == "-Infinity")){
+        calcAnswer.textContent = "Math error: Undefined"
+        calcAnswer.style.fontSize = "25px";
     } else if (evalValid){
         if (finalResult.toString().length > 15){
             finalResult = finalResult.toExponential(5);
             calcAnswer.textContent = finalResult;
             calcAnswer.style.fontSize = "40px";
+            writeSolution(stringExpression, finalResult);
+            
         } else {
             calcAnswer.textContent = finalResult;
             calcAnswer.style.fontSize = "40px";
+            writeSolution(stringExpression, finalResult);
         }
         
     } else {
@@ -244,4 +272,21 @@ const findRadicand = (radicandString) => {
     let radicandStringAfter = radicandString.substring(radicandString.indexOf(newRadicand)+newRadicand.length+1);
     let radicandFinalArray = [newRadicand, radicandStringAfter];
     return radicandFinalArray;
+}
+
+// Write expression and answer in solution paper
+const writeSolution = (exp, ans) => {
+    if (equalSignClick % 4 == 0){
+        solutionExp4.textContent = exp;
+        solutionAnswer4.textContent = ans;
+    } else if (equalSignClick % 3 == 0){
+        solutionExp3.textContent = exp;
+        solutionAnswer3.textContent = ans;
+    } else if (equalSignClick % 2 == 0){
+        solutionExp2.textContent = exp;
+        solutionAnswer2.textContent = ans;
+    } else {
+        solutionExp1.textContent = exp;
+        solutionAnswer1.textContent = ans;
+    }
 }
