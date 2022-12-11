@@ -6,6 +6,7 @@ const calcScreen = document.getElementById("calcScreen");
 const calcMode = document.getElementById("calcMode");
 const calcAnswer = document.getElementById("calcAnswer");
 const calcExpression = document.getElementById("calcExpression");
+const aboutScreen = document.getElementById("aboutScreen")
 
 // buttons
 // top
@@ -67,6 +68,7 @@ btnOn.addEventListener("click", function() {
     calcScreen.classList.add("turnOn");
     calcStatus = "on";
     clearScreen();
+    aboutScreen.classList.remove("aboutScreenActive");
 });
 
 // turn off
@@ -74,15 +76,24 @@ btnOff.addEventListener("click", function() {
     calcScreen.classList.remove("turnOn");
     calcStatus = "off";
     clearScreen();
+    aboutScreen.classList.remove("aboutScreenActive");
 });
 
 // clear screen
 btnClear.addEventListener("click", function(){
-    clearScreen()
+    clearScreen();
 });
 
 // delete number
 btnDelete.addEventListener("click", deleteNum);
+
+// question mark button clicked
+btnAbout.addEventListener("click", function(){
+    if (calcStatus == "on"){
+        clearScreen()
+    aboutScreen.classList.toggle("aboutScreenActive");
+    }
+})
 
 // click numbers
 btnZero.addEventListener("click", function(){printNum(0)});
